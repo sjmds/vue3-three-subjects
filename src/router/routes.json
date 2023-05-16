@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "home",
+    "path": "/home/home",
+    "icon": "house",
+    "hidden": 0,
+    "children": []
+  },
+  {
+    "path": "/components",
+    "id": "2",
+    "name": "components",
+    "icon": "menu",
+    "children": [
+      {
+        "path": "/components/loading/loading",
+        "id": "21",
+        "name": "Loading",
+        "icon": "",
+        "hidden": 0,
+        "children": []
+      }
+    ]
+  },
+  {
+    "path": "/subjects",
+    "id": "3",
+    "name": "subjects",
+    "icon": "grid",
+    "children": [
+      {
+        "path": "/subjects/three/scene",
+        "id": "31",
+        "name": "three scene",
+        "icon": "",
+        "hidden": 0,
+        "children": []
+      },
+      {
+        "path": "/subjects/three/lines",
+        "id": "32",
+        "name": "drawing lines",
+        "icon": "",
+        "hidden": 0,
+        "children": []
+      }
+    ]
+  }
+]
