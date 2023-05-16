@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    FullscreenCard: typeof import('./src/components/FullscreenCard/index.vue')['default']
     FullscreenLoading: typeof import('./src/components/FullscreenLoading/index.vue')['default']
     FullscrgeenLoading: typeof import('./src/components/FullscrgeenLoading.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
