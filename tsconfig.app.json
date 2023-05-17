@@ -10,6 +10,8 @@
     // "src/**/__tests__/*"
   ],
   "compilerOptions": {
+    "preserveValueImports": false,
+    "isolatedModules": false,
     "composite": true,
     "types": [
       "element-plus/global"
