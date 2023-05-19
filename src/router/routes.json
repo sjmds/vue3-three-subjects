@@ -52,6 +52,14 @@
         "icon": "",
         "hidden": 0,
         "children": []
+      },
+      {
+        "path": "/subjects/three/models3D",
+        "id": "34",
+        "name": "models3D",
+        "icon": "",
+        "hidden": 0,
+        "children": []
       }
     ]
   }

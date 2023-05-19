@@ -14,42 +14,43 @@ import { useCommonStore } from '@/stores/common'
 const { innerWidth, innerHeight } = storeToRefs(useCommonStore())
 
 const sceneDom = ref<any>(null)
+let camera:any, scene:any, renderer:any, cube:any
 
 const init = () => {
-	const scene = new THREE.Scene()
-	const camera = new THREE.PerspectiveCamera( 75, innerWidth.value / innerHeight.value, 0.1, 1000 )
+	scene = new THREE.Scene()
+	camera = new THREE.PerspectiveCamera( 75, innerWidth.value / innerHeight.value, 0.1, 1000 )
 
-	const renderer = new THREE.WebGLRenderer()
+	renderer = new THREE.WebGLRenderer()
 	renderer.setSize( innerWidth.value, innerHeight.value )
 	sceneDom.value.appendChild(renderer.domElement)
 
 	const geometry = new THREE.BoxGeometry( 1, 1, 1 )
 	const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } )
-	const cube = new THREE.Mesh( geometry, material )
+	cube = new THREE.Mesh( geometry, material )
 	scene.add( cube )
 
 	camera.position.z = 5
-
-	function animate() {
-		requestAnimationFrame( animate )
-
-		cube.rotation.x += 0.01
-		cube.rotation.y += 0.01
-
-		renderer.render( scene, camera )
-	}
-	function onWindowResize() {
-    camera.aspect = innerWidth.value / innerHeight.value
-    camera.updateProjectionMatrix()
-    renderer.setSize( innerWidth.value, innerHeight.value )
-  }
   window.addEventListener( 'resize', onWindowResize )
 
-	animate()
 }
-
+function animate() {
+	requestAnimationFrame( animate )
+	render()
+}
+function render() {
+  cube.rotation.x += 0.01
+	cube.rotation.y += 0.01
+	renderer.render( scene, camera )
+}
+function onWindowResize() {
+	camera.aspect = innerWidth.value / innerHeight.value
+	camera.updateProjectionMatrix()
+	renderer.setSize( innerWidth.value, innerHeight.value )
+}
 onMounted(()=>{
 	init()
+	animate()
+	render()
 })
 
 </script>

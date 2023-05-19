@@ -25,19 +25,7 @@ const init = () => {
 	renderer = new THREE.WebGLRenderer()
 	renderer.setSize( innerWidth.value, innerHeight.value )
 	sceneDom.value.appendChild(renderer.domElement)
-
-	const material = new THREE.LineBasicMaterial( { color: 0x00ff00 } )
-  const points = []
-  points.push( new THREE.Vector3( -10, 0, 0 ) )
-  points.push( new THREE.Vector3( 0, 10, 0 ) )
-  // 坐标原点，和数学坐标轴一样
-  points.push( new THREE.Vector3( 0, 0, 0 ) )
-  points.push( new THREE.Vector3( 10, 0, 0 ) )
-
-  const geometry = new THREE.BufferGeometry().setFromPoints( points )
-  const line = new THREE.Line( geometry, material )
-	scene.add(line)
-
+	
   window.addEventListener( 'resize', onWindowResize )
 }
 function animate() {
@@ -48,22 +36,24 @@ function render() {
   renderer.render( scene, camera )
 }
 function onWindowResize() {
-	camera.aspect = innerWidth.value / innerHeight.value
-	camera.updateProjectionMatrix()
-	renderer.setSize( innerWidth.value, innerHeight.value )
+  camera.aspect = innerWidth.value / innerHeight.value
+  camera.updateProjectionMatrix()
+  renderer.setSize( innerWidth.value, innerHeight.value )
+  render()
 }
+
 
 onMounted(()=>{
 	init()
-	animate()
-	render()
+  animate()
+  render()
 })
 
 </script>
 
 <style lang="scss" scoped>
 .scene-wrap {
-	display: block;
+  display: block;
 	background-color: var(--vt-c-white);
 }
 </style>
