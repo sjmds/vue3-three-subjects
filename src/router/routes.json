@@ -44,6 +44,14 @@
         "icon": "",
         "hidden": 0,
         "children": []
+      },
+      {
+        "path": "/subjects/three/textshapes",
+        "id": "33",
+        "name": "text shapes",
+        "icon": "",
+        "hidden": 0,
+        "children": []
       }
     ]
   }

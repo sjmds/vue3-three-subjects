@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "element-plus": "^2.3.4",
+    "pathe": "^1.1.0",
     "pinia": "^2.0.32",
     "qiankun": "^2.10.6",
     "three": "^0.152.2",
