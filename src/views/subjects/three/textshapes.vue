@@ -57,9 +57,8 @@ const init = () => {
   scene.add( group )
 
   // EVENTS
-
-  sceneDom.value.style.touchAction = 'none';
-  sceneDom.value.addEventListener( 'pointerdown', onPointerDown );
+  sceneDom.value.style.touchAction = 'none'
+  sceneDom.value.addEventListener( 'pointerdown', onPointerDown )
 
   loadFont()
   function loadFont() {
