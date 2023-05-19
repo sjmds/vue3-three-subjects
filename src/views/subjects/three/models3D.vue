@@ -7,9 +7,12 @@
 </template>
 
 <script setup lang="ts">
+import path from 'pathe'
 import { ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import * as THREE from 'three'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { useCommonStore } from '@/stores/common'
 const { innerWidth, innerHeight } = storeToRefs(useCommonStore())
 
@@ -21,6 +24,24 @@ const init = () => {
 	camera = new THREE.PerspectiveCamera( 45, innerWidth.value / innerHeight.value, 1, 500 )
   camera.position.set( 0, 0, 100 )
   camera.lookAt( 0, 0, 0 )
+
+  //
+
+  const dracoLoader = new DRACOLoader()
+  dracoLoader.setDecoderPath( path.resolve('node_modules/three/examples/jsm/libs/draco/gltf/') )
+
+  const loader = new GLTFLoader()
+  loader.setDRACOLoader( dracoLoader )
+  loader.setPath( 'models/gltf/AVIFTest/' )
+  loader.load('forest_house.glb', function ( gltf ) {
+
+    scene.add( gltf.scene )
+
+    render()
+
+  } )
+
+  //
 
 	renderer = new THREE.WebGLRenderer()
 	renderer.setSize( innerWidth.value, innerHeight.value )
