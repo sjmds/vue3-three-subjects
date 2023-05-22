@@ -32,8 +32,8 @@ const init = () => {
 
   const loader = new GLTFLoader()
   loader.setDRACOLoader( dracoLoader )
-  loader.setPath( 'models/gltf/AVIFTest/' )
-  loader.load('forest_house.glb', function ( gltf ) {
+  loader.setPath( path.resolve('node_modules/three/examples/models/gltf/AVIFTest/') )
+  loader.load('/forest_house.glb', function ( gltf ) {
 
     scene.add( gltf.scene )
 
