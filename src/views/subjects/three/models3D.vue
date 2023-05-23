@@ -38,6 +38,10 @@ const init = () => {
     scene.add( gltf.scene )
     render()
 	} )
+  // loader.load('/BoomBox.glb', ( gltf ) => {
+  //   scene.add( gltf.scene )
+  //   render()
+	// } )
 
   // 
 
