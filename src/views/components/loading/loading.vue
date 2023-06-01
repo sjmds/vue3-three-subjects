@@ -1,6 +1,6 @@
 <template>
   <!-- <FullscreenLoading /> -->
-  <div ref="ss">content</div>
+  <div class="ss" ref="ss"></div>
 </template>
 
 <script setup lang="ts">
