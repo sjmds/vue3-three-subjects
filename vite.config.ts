@@ -8,6 +8,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+import viteCompression from 'vite-plugin-compression'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -25,6 +27,14 @@ export default defineConfig({
           importStyle: "sass",
         }),
       ],
+    }),
+    // 压缩
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'gzip',
+      ext: '.gz'
     }),
   ],
   resolve: {
@@ -53,5 +63,16 @@ export default defineConfig({
         rewrite: path => path.replace(/^\/api/, '')
       }
     }
+  },
+  build: {
+    outDir: 'dist',
+    minify: 'terser', // 如果需要用terser混淆，可打开这两行
+    terserOptions: {
+      compress: {
+        keep_infinity: true,
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
   }
 })
