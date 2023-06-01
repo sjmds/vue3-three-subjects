@@ -14,16 +14,13 @@ export const useCommonStore = defineStore({
   actions: {
     updateCollapse() {
       this.collapse = !this.collapse
+      this.asideWidth = this.collapse ? 60 : 200
       this.innerWidth = window.innerWidth - this.asideWidth - 40
     },
     updateInner({ clientWidth, clientHeight }: any) {
       this.innerWidth = clientWidth
       this.innerHeight = clientHeight
     },
-    updateAsideWidth(val: number) {
-      this.asideWidth = val
-      this.innerWidth = window.innerWidth - this.asideWidth - 40
-    }
   },
 })
 

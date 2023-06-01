@@ -11,7 +11,9 @@
           :icon="collapse?'el-icon-expand':'el-icon-fold'" 
           @click="setCollapse"
         />
-        <el-menu router :collapse="collapse">
+        <el-menu
+          router 
+          :collapse="collapse">
           <template v-for="item in routerStore.routes" :key="item.id">
             <el-menu-item
               v-if="!item.children || !item.children.length"
@@ -80,7 +82,7 @@ const setInner = () => {
 	commonStore.updateInner({ clientWidth, clientHeight })
 }
 const setCollapse = () => {
-  console.log('collapse',collapse)
+  // console.log('collapse',collapse)
   commonStore.updateCollapse()
 }
 

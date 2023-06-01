@@ -20,7 +20,7 @@ app.use(ElementPlus, {
 // 导入所有图标并进行全局注册
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(`elIcon${key}`, component)
+  app.component(`ElIcon${key}`, component)
 }
 
 import { registerMicroApps, start } from 'qiankun'
