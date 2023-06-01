@@ -1,6 +1,6 @@
 import router from "@/router"
 import routesData from "@/router/routes.json"
-import type { RouteRecordRawIcon } from '@/types/router.d'
+import type { RouteRecordRawIcon } from '@/types/types.d'
 
 export const parsePath = (path: string) => {
   return path.startsWith('/') ? path : `/${path}`
